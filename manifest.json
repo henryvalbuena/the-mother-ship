@@ -1,0 +1,7 @@
+{
+    "author": "Henry Valbuena",
+    "name": "The Mother-ship",
+    "description": "RESTful API backend server",
+    "manifest_version": "0.0.1",
+    "version": "0.0.0-alpha.1"
+}
