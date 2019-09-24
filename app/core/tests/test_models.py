@@ -86,3 +86,22 @@ class ModelTests(TestCase):
         exp_path = f'uploads/recipe/{uuid}.jpg'
 
         self.assertEqual(file_path, exp_path)
+
+    def test_meta_str(self):
+        """Test the meta string representation"""
+        meta = models.Meta.objects.create(
+            user=sample_user(),
+            name='JavaScript'
+        )
+
+        self.assertEqual(str(meta), meta.name)
+
+    def test_project_str(self):
+        """Test the project string representation"""
+        project = models.Project.objects.create(
+            user=sample_user(),
+            title='Testing application',
+            name='Test App',
+        )
+
+        self.assertEqual(str(project), project.title)

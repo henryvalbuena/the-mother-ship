@@ -90,3 +90,33 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Meta(models.Model):
+    """Meta object"""
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    name = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.name
+
+
+class Project(models.Model):
+    """Project object"""
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+    title = models.CharField(max_length=50)
+    name = models.CharField(max_length=30)
+    meta = models.ManyToManyField('Meta')
+    desc = models.CharField(max_length=250)
+    detail = models.CharField(max_length=250)
+    img_url = models.CharField(max_length=250)
+    github = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.title
